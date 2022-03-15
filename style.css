@@ -1,12 +1,64 @@
 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/** END OF RESET **/
+
+
 /* Box Model Hack */
 *{
   box-sizing: border-box;
 }
 
-/******************************************
-/* LAYOUT
-/*******************************************/
+/********************************************************************************
+/* LAYOUT FOR THE INITIAL VISUALS (FIRST PAGE BEFORE ANY CHARACTERS ARE CHOSEN).
+/********************************************************************************/
 body {
   background: black;
   height: 937px;
@@ -25,6 +77,7 @@ h1 {
   color: #6a040f;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   margin-bottom: 60px;
+  font-size: 2.5rem;
 }
 
 ul{
@@ -45,9 +98,15 @@ img{
   top: 0;
 }
 
+
+/* For the hover styling, when we hover over a card,we want our cards to pulse the
+box-shadow/glow, and we want the card to slightly lift up. We have to copy and paste this code
+for each character instead of using one class to select all four cards because the keyframe
+is specific to each character (the keyframe's box-shadow glow colors specifically). I tried 
+to find a way to minimalize repetition, but keyframes are tricky. *************************/
+
+/* The animations and transitions for Chrollo's card. */
 #cimg:hover {
-  /* in order: x offset, y offset, blur size, spread size, color */
-  /* blur size and spread size are optional (they default to 0) */
   transition: top ease 0.5s;
   top: -20px;
   animation-name: cpulse;
@@ -69,9 +128,8 @@ img{
   }
 }
 
+/* The animations and transitions for Gon's card. */
 #gimg:hover {
-  /* in order: x offset, y offset, blur size, spread size, color */
-  /* blur size and spread size are optional (they default to 0) */
   transition: top ease 0.5s;
   top: -20px;
   animation-name: gpulse;
@@ -93,9 +151,8 @@ img{
   }
 }
 
+/* The animations and transitions for Killua's card. */
 #kilimg:hover {
-  /* in order: x offset, y offset, blur size, spread size, color */
-  /* blur size and spread size are optional (they default to 0) */
   transition: top ease 0.5s;
   top: -20px;
   animation-name: kilpulse;
@@ -117,9 +174,8 @@ img{
   }
 }
 
+/* The animations and transitions for Kurapika's card. */
 #kurimg:hover {
-  /* in order: x offset, y offset, blur size, spread size, color */
-  /* blur size and spread size are optional (they default to 0) */
   transition: top ease 0.5s;
   top: -20px;
   animation-name: kurpulse;
@@ -141,16 +197,47 @@ img{
   }
 }
 
-
+/*****  .fight is a class assigned to all four character's sections in HTML.
+We are choosing all four of them and setting all of the SPECIAL visuals 
+(after a character is chosen) to be display: none, aka completely hidden 
+from the viewport. All we want to see before we choose a character is the 
+initial styling and initial page. *****************************************/
 .fight {
   display: none;
 }
 
 
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
 
+/*******************************************************************************************************************************************************************
+/* STYLING FOR ONCE A CHARACTER IS CHOSEN. I STYLE BY COMMON SECTIONS, FOR EXAMPLE: ALL BACKGROUNDS, THEN ALL HEADINGS, THEN ALL SPANS, ETC. THIS REDUCES REPTITION.
+/********************************************************************************************************************************************************************/
+
+
+/* .fight selects all four character's sections. 
+All of their backgrounds will have these styles: */
+.fight {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Setting each character's specific background */
+.chrolloVid {
+  background-image: url("./imgs/chrollobg.jpg");
+}
+
+.gonVid {
+  background-image: url("./imgs/gonbg.jpg");
+}
+
+.killuaVid {
+  background-image: url("./imgs/killuabg.jpg");
+}
+
+.kurapikaVid {
+  background-image: url("./imgs/kurapikabg.jpg");
+}
+
+/* The container for the heading & span (character's name) */
 .youChose {
   display: flex;
   flex-direction: column;
@@ -158,6 +245,7 @@ img{
   margin-top: 60px;
 }
 
+/* The heading that says "You chose:" */
 h2 {
   color: black;
   font-size: 3rem;
@@ -177,6 +265,7 @@ h2 {
   100% {transform: translateY(0px);}
 }
 
+/* The span that contains the character's name. */
 .fight span {
   color: black;
   font-size: 5rem;
@@ -186,6 +275,7 @@ h2 {
   animation-delay: 4s;
 }
 
+/* Setting each character's name to have a text "outline" by manipulating text-shadow  */
 .chrolloVid span {
   text-shadow: -1px 0 #6a040f, 0 1px #6a040f, 1px 0 #6a040f, 0 -1px #6a040f;
 }
@@ -202,14 +292,10 @@ h2 {
   text-shadow: -1px 0 #e861ae, 0 1px #e861ae, 1px 0 #e861ae, 0 -1px #e861ae;
 }
 
+/* Positioning the images and videos. Should have an image on each side of the video.  */
+/* .chosen chooses the section that holds the two images and video; it is applied to all four character's corresponding sections */
 
-.chrolloVid {
-  background-image: url("./imgs/chrollobg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.c2 {
+.chosen {
   display: flex;
   flex-direction: row;
   height: 80%;
@@ -218,11 +304,10 @@ h2 {
   gap: 100px;
 }
 
-.c2 img {
+.chosen img {
   display: flex;
   height: 500px;
   width: 400px;
-  box-shadow: 0 0 30px 30px #63154f;
   opacity: 0;
   animation: floating 3s infinite ease-in-out, fadeIn 3s 6s forwards;
 }
@@ -233,14 +318,40 @@ h2 {
   100%   { transform: translate(0, -0px); }   
 }
 
-#chrolloVid, #gonVid, #killuaVid, #kurapikaVid {
+/* Setting the specific glow for each character's images and videos */
+.c2 img {
+  box-shadow: 0 0 30px 30px #63154f;
+}
+
+.g2 img {
+  box-shadow: 0 0 30px 30px #e4722e;
+}
+
+.kil2 img {
+  box-shadow: 0 0 30px 30px #9045cd;
+}
+
+.kurapika2 img {
+  box-shadow: 0 0 28px 28px #e861ae;
+}
+
+/* Positioning the character's videos and adding opacity: 0 so 
+that our animation fadeIn is compatible. Remember, we wrote the 
+code for fadeIn earlier so we don't have to write it again down here. 
+The style sheet will find it in the cascade and apply it, as we have 
+called for it with animation: fadeIn *******************************/
+.chosen video {
   display: flex;
   width: 33.33%;
   height: 360px;
+  align-items: center;
   opacity: 0;
   animation: fadeIn 1s 7.5s forwards;
 }
 
+/* Adding glow to the character's videos
+how to use box-shadow: x offset, y offset, blur size, spread size, color
+blur size and spread size are optional (they default to 0) */
 #chrolloVid {
   box-shadow: 0 0 30px 30px #63154f;
 }
@@ -255,82 +366,4 @@ h2 {
 
 #kurapikaVid {
   box-shadow: 0 0 30px 30px #e861ae;
-}
-
-.gonVid {
-  background-image: url("./imgs/gonbg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.g2 {
-  display: flex;
-  flex-direction: row;
-  height: 80%;
-  margin-bottom: 100px;
-  align-items: center;
-  gap: 100px;
-}
-
-.g2 img {
-  display: flex;
-  height: 500px;
-  width: 400px;
-  box-shadow: 0 0 30px 30px #e4722e;
-  opacity: 0;
-  animation: floating 3s infinite ease-in-out, fadeIn 3s 6s forwards;
-}
-
-.killuaVid {
-  background-image: url("./imgs/killuabg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.kil2 {
-  display: flex;
-  flex-direction: row;
-  height: 80%;
-  margin-bottom: 100px;
-  align-items: center;
-  gap: 100px;
-}
-
-.kil2 img {
-  display: flex;
-  height: 500px;
-  width: 400px;
-  box-shadow: 0 0 30px 30px #9045cd;
-  opacity: 0;
-  animation: floating 3s infinite ease-in-out, fadeIn 3s 6s forwards;
-}
-
-.kurapikaVid {
-  background-image: url("./imgs/kurapikabg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.kurapika2 {
-  display: flex;
-  flex-direction: row;
-  height: 80%;
-  margin-bottom: 100px;
-  align-items: center;
-  gap: 100px;
-}
-
-.kurapika2 img {
-  display: flex;
-  height: 500px;
-  width: 400px;
-  box-shadow: 0 0 28px 28px #e861ae;
-  opacity: 0;
-  animation: floating 3s infinite ease-in-out, fadeIn 3s 6s forwards;
-}
-
-.fight video {
-  display: flex;
-  align-items: center;
-  height: 500px;
 }
