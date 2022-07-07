@@ -23,4 +23,5 @@ Timed functions with Javascript.
 ## Lessons Learned:
 
 This was my first project practicing Javascript; I practiced using an event listener by using "onclick" for each specified element. Furthermore, I practiced writing functions as I wrote each click event.  
-My next goal would be to refactor my code. Each click event has the same exact syntax and it's repetitive. I could condense the four click events into one, and set the changing element as a parameter.
+My next goal would be to refactor my code. Each click event has the same exact syntax and it's repetitive. I could condense the four click events into one, and set the changing element as a parameter.  
+Also, this project is not responsive, so another goal of mine is to work on the media queries.
