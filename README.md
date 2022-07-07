@@ -1,5 +1,5 @@
 # [Choose Your Fighter](https://alexisintech.github.io/chooseyourfighter/)
-Choose a character from HunterxHunter and watch some cool animations and JavaScript come into play :)
+Choose a character from Hunter x Hunter and watch some cool animations and JavaScript come into play :)
 
 <div>
   <a href="https://alexisintech.github.io/chooseyourfighter/" target=_blank>
