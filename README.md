@@ -3,7 +3,7 @@ Choose a character from HunterxHunter and watch some cool animations and JavaScr
 
 <div>
   <a href="https://alexisintech.github.io/chooseyourfighter/" target=_blank>
-    <img src="socialLinks.gif" width="100%" />
+    <img src="fightergif.gif" width="100%" />
   </a>
 </div>
 
