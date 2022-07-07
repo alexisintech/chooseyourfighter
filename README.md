@@ -11,10 +11,10 @@ Choose a character from Hunter x Hunter and watch some cool animations and JavaS
 
 **Tech used:** HTML, CSS, Javascript   
 
-[Chrollo's fanmade edit video](https://www.youtube.com/watch?v=Kqv_Sz0ZNCs&t=131s)
-[Gon's fanmade edit video](https://www.youtube.com/watch?v=vt0KyzZ4L_Q)
-[Killua's fanmade edit video](https://www.youtube.com/watch?v=iiA8OIHw4Hg)
-[Kurapika's fanmade edit video](https://www.youtube.com/watch?v=e6vFm47UMik)
+[Chrollo's fanmade edit video](https://www.youtube.com/watch?v=Kqv_Sz0ZNCs&t=131s)  
+[Gon's fanmade edit video](https://www.youtube.com/watch?v=vt0KyzZ4L_Q)  
+[Killua's fanmade edit video](https://www.youtube.com/watch?v=iiA8OIHw4Hg)  
+[Kurapika's fanmade edit video](https://www.youtube.com/watch?v=e6vFm47UMik)  
 
 ## Optimizations
 
